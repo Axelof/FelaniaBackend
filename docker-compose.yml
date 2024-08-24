@@ -1,0 +1,35 @@
+services:
+  backend:
+    env_file: .env
+    build: .
+    tty: true
+    command:
+      - --host=0.0.0.0
+      - --port=7070
+      - --reload
+      - --reload-dir=/src
+      - --log-level=warning
+    ports:
+      - "7070:7070"
+    volumes:
+      - ./src:/src
+
+  redis:
+    image: redis
+    restart: unless-stopped
+    expose:
+      - 6379
+    volumes:
+      - redis_data:/data
+
+  database:
+    env_file: .env
+    image: postgres:15.1-alpine
+    expose:
+      - 5432
+    volumes:
+      - ./database:/var/lib/postgresql/data
+
+
+volumes:
+  redis_data:
