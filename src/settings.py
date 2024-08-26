@@ -18,11 +18,19 @@ class RedisSettings(BaseSettings):
         env_prefix = "redis_"
 
 
+class DostavistaSettings(BaseSettings):
+    token: str
+
+    class Config:
+        env_prefix = "dostavista_"
+
+
 class Settings(BaseSettings):
     debug: bool
 
     database: DatabaseSettings = DatabaseSettings()
     redis: RedisSettings = RedisSettings()
+    dostavista: DostavistaSettings = DostavistaSettings()
 
 
 settings = Settings()

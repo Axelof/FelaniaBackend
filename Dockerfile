@@ -1,6 +1,6 @@
 FROM python:3.11-alpine
 
-WORKDIR /app
+WORKDIR /src
 
 RUN apk update && apk add --no-cache \
     gcc \

@@ -1,5 +1,5 @@
 from fastapi import APIRouter
 
-from routes import node
+from routes import dostavista
 
-routers: tuple["APIRouter"] = (node.router,)
+routers: tuple["APIRouter", ...] = (dostavista.router,)

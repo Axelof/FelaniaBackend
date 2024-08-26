@@ -1,5 +1,5 @@
 services:
-  backend:
+  api:
     env_file: .env
     build: .
     tty: true
